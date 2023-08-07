@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="container__box" *ngFor=" let user of users">
+    <h1 class="container__user">{{user.nickName}}</h1>
+    <ul class="container__list">
+      <li>{{user.name}}</li>
+      <li>{{user.number}}</li>
+      <li>{{user.mail}}</li>
+      <li>{{user.userAnswerData?.score}}point</li>
+    </ul>
+    <button (click)="startQuiz(user.id)" mat-raised-button color="primary">Start</button>
+    <button (click)="openEditDialog(user)" style="margin-top: 10px" mat-raised-button color="primary">Edit Player</button>
+    <div class="container__button">
+      <button (click)="deleteUser(user.id)" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+        <mat-icon>delete</mat-icon>
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

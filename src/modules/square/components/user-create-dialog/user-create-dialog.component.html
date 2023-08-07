@@ -1,0 +1,57 @@
+<h2 mat-dialog-title>Fill in the form</h2>
+<mat-dialog-content class="mat-typography">
+  <p>After completing the form correctly, if you break the record, we will contact you regarding prize </p>
+
+  <form [formGroup]="userForm" class="">
+    <mat-form-field class="" appearance="fill">
+      <mat-label>Nickname</mat-label>
+      <input formControlName="nickName" matInput placeholder="Enter your nickname">
+      <mat-error *ngIf="nickName?.invalid">
+        <ng-container *ngIf="nickName?.errors?.['required']"> Nick name is required</ng-container>
+
+        <ng-container *ngIf="nickName?.errors?.['minlength']">Nick name must be at least 2 characters long
+        </ng-container>
+
+        <ng-container *ngIf="nickName?.errors?.['maxlength']">Nickname it must have up least 7 characters long
+        </ng-container>
+
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="input" appearance="fill">
+      <mat-label>Name</mat-label>
+      <input formControlName="name" matInput placeholder="Enter your nickname">
+      <mat-error *ngIf="name?.invalid">
+        <ng-container *ngIf="name?.errors?.['required']"> Nick name is required</ng-container>
+
+        <ng-container *ngIf="name?.errors?.['minlength']">Nick name must be at least 2 characters long
+        </ng-container>
+
+        <ng-container *ngIf="name?.errors?.['maxlength']">Nickname it must have up least 7 characters long
+        </ng-container>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="input" appearance="fill">
+      <mat-label>Mail</mat-label>
+      <input formControlName="mail" matInput placeholder="Enter your mail">
+      <mat-error *ngIf="mail?.errors">
+        <ng-container *ngIf="mail?.errors?.['email']">Invalid email</ng-container>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="input" appearance="fill">
+      <mat-label>Phone number</mat-label>
+      <input formControlName="number" matInput placeholder="Enter your phone number">
+
+      <mat-error *ngIf="number?.errors">
+        <ng-container *ngIf="number?.errors?.['required']"> Nick name is required</ng-container>
+        <ng-container *ngIf="number?.errors?.['nineDigits']"> Number should contain 9 digits</ng-container>
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="addUser()" cdkFocusInitial>Add</button>
+</mat-dialog-actions>

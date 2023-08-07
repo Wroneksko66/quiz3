@@ -1,0 +1,36 @@
+<div class="container">
+  <ng-container *ngIf="!quizComplete">
+    <div class="container__items ">
+      <div class="container__item ">{{countTimer}}s</div>
+      <div class="container__item ">{{activeQuestionNumber + 1}} z 10</div>
+      <div class="container__item">{{points}}</div>
+    </div>
+    <h1 class="container__question">{{ questions[activeQuestionNumber].question }} </h1>
+    <div class="container__answer">
+      <ol class="container__list">
+        <li class="container__element" *ngFor="let answer of questions[activeQuestionNumber].answers;">
+          <button mat-raised-button color="warn" (click)="checkQuestion(answer.id)">{{answer.label}}</button>
+        </li>
+      </ol>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="quizComplete">
+<div class="row">
+  <div class="col-5 container__box">
+    <img class="obama" src="assets/Obama.webp">
+  </div>
+  <div class="col-7 container__box">
+    <div class="container__results">
+      <h1>Congratulation <br> Your Result is:</h1>
+      <p>Score:{{points}}</p>
+      <p>Correct answer:{{correctAnswerCount}}</p>
+      <p>Incorrect answer:{{inCorrectAnswerCount}}</p>
+      <div class="container__button">
+        <button (click)="changeUser()"  mat-raised-button color="warn">Change user</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+  </ng-container>
+</div>

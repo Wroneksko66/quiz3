@@ -1,0 +1,62 @@
+<h1 class="title">Creat your own question</h1>
+<form [formGroup]="questionForm">
+  <div class="inputs">
+    <div class="question">
+      <mat-form-field class="" appearance="fill">
+        <mat-label>Question</mat-label>
+        <input formControlName="question" matInput placeholder="Enter your question">
+      </mat-form-field>
+
+    </div>
+
+    <div class="answers">
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group" formControlName="correctAnswer">
+        <div class="answer">
+          <mat-form-field class=" input" appearance="fill">
+            <mat-label>Answer1</mat-label>
+            <input formControlName="answer1" matInput placeholder="Enter your question">
+          </mat-form-field>
+          <mat-radio-button class="example-radio-button" [value]="1">
+            *
+          </mat-radio-button>
+        </div>
+        <div class="answer">
+          <mat-form-field class=" input" appearance="fill">
+            <mat-label>Answer2</mat-label>
+            <input formControlName="answer2" matInput placeholder="Enter your answer">
+          </mat-form-field>
+
+          <mat-radio-button class="example-radio-button" [value]="2">
+            *
+          </mat-radio-button>
+        </div>
+        <div class="answer">
+          <mat-form-field class=" input" appearance="fill">
+            <mat-label>Answer3</mat-label>
+            <input formControlName="answer3" matInput placeholder="Enter your question">
+          </mat-form-field>
+
+          <mat-radio-button class="example-radio-button" [value]="3">
+            *
+          </mat-radio-button>
+        </div>
+        <div class="answer">
+          <mat-form-field class=" input" appearance="fill">
+            <mat-label>Answer4</mat-label>
+            <input formControlName="answer4" matInput placeholder="Enter your question">
+          </mat-form-field>
+
+          <mat-radio-button class="example-radio-button" [value]="4">
+            *
+          </mat-radio-button>
+        </div>
+      </mat-radio-group>
+    </div>
+  </div>
+</form>
+<p class="info">*-Correct Answer </p>
+<div class="btn">
+  <button mat-flat-button (click)="saveQuestion()">Add</button>
+</div>
